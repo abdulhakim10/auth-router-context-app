@@ -2,7 +2,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home';
 import Login from './components/Login';
+import Orders from './components/Orders';
 import Register from './components/Register';
+import PrivetRoute from './components/routes/PrivetRoute';
 import Main from './layout/Main';
 
 function App() {
@@ -13,7 +15,11 @@ function App() {
       children: [
         {
           path: '/',
-          element: <Home></Home>
+          element:<PrivetRoute><Home></Home></PrivetRoute>
+        },
+        {
+          path: '/orders',
+          element: <PrivetRoute><Orders></Orders></PrivetRoute>
         },
         {
           path: '/login',
